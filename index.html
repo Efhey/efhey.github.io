@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JF Piché – Portfolio</title>
+  <meta name="description" content="Portfolio minimal de JF Piché – conception lumière, direction technique." />
+  <link rel="icon" href="assets/favicon.png" />
+  <style>
+    :root{--bg:#0b0c10;--text:#e5e7eb;--muted:#a3a3a3;--brand:#7dd3fc;--card:#121419;--r:16px}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    a{color:var(--brand);text-decoration:none}
+    .wrap{max-width:980px;margin:0 auto;padding:28px}
+    header{margin:8px 0 24px}
+    h1{font-size:34px;line-height:1.2;margin:0}
+    .sub{color:var(--muted);margin-top:6px}
+    .pill{display:inline-block;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:4px 10px;color:var(--muted);font-size:13px}
+    section{margin:28px 0}
+    h2{font-size:22px;margin:0 0 10px}
+
+    /* Projets */
+    .projects{display:grid;gap:18px}
+    .project{border:1px solid rgba(255,255,255,.08);border-radius:var(--r);background:var(--card);padding:16px}
+    .project h3{margin:0 0 4px;font-size:18px}
+    .meta{color:var(--muted);font-size:14px;margin-bottom:10px}
+    .project p{margin:0 0 12px}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    @media (max-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:620px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    .ph{aspect-ratio:1/1;border-radius:10px;overflow:hidden}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+
+    footer{margin:26px 0;color:var(--muted);font-size:14px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>JF Piché</h1>
+      <p class="sub">Conception lumière • Direction technique • Montréal</p>
+      <span class="pill">Portfolio minimal – GitHub Pages</span>
+    </header>
+
+    <section id="projets">
+      <h2>Projets</h2>
+      <div class="projects">
+        <!-- PROJET 1 -->
+        <article class="project">
+          <h3>La Noce d’Alfonse</h3>
+          <div class="meta">Conception lumière • 2024</div>
+          <p>Création lumineuse pour une célébration scénique immersive. Adaptation aux inventaires des salles, approche RGBW et washes mobiles.</p>
+          <div class="gallery">
+            <div class="ph"><img src="assets/noce-1.jpg" alt="La Noce d’Alfonse – vue 1"></div>
+            <div class="ph"><img src="assets/noce-2.jpg" alt="La Noce d’Alfonse – vue 2"></div>
+            <div class="ph"><img src="assets/noce-3.jpg" alt="La Noce d’Alfonse – vue 3"></div>
+            <div class="ph"><img src="assets/noce-4.jpg" alt="La Noce d’Alfonse – vue 4"></div>
+          </div>
+        </article>
+
+        <!-- PROJET 2 -->
+        <article class="project">
+          <h3>Animal – Cirque Alfonse</h3>
+          <div class="meta">Direction technique • 2023</div>
+          <p>Coordination technique et implantation scénique. Gestion rigging, patch, et optimisations de tournée.</p>
+          <div class="gallery">
+            <div class="ph"><img src="assets/animal-1.jpg" alt="Animal – vue 1"></div>
+            <div class="ph"><img src="assets/animal-2.jpg" alt="Animal – vue 2"></div>
+            <div class="ph"><img src="assets/animal-3.jpg" alt="Animal – vue 3"></div>
+            <div class="ph"><img src="assets/animal-4.jpg" alt="Animal – vue 4"></div>
+          </div>
+        </article>
+
+        <!-- PROJET 3 -->
+        <article class="project">
+          <h3>Salebarbes – Tournée</h3>
+          <div class="meta">Éclairage & réseau sACN • 2025</div>
+          <p>Design lumière et déploiement réseau (grandMA3 onPC, sACN). Optimisations pour venues variées.</p>
+          <div class="gallery">
+            <div class="ph"><img src="assets/salebarbes-1.jpg" alt="Salebarbes – vue 1"></div>
+            <div class="ph"><img src="assets/salebarbes-2.jpg" alt="Salebarbes – vue 2"></div>
+            <div class="ph"><img src="assets/salebarbes-3.jpg" alt="Salebarbes – vue 3"></div>
+            <div class="ph"><img src="assets/salebarbes-4.jpg" alt="Salebarbes – vue 4"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>📧 <a href="mailto:votre.email@example.com">votre.email@example.com</a></p>
+    </section>
+
+    <footer>
+      © <span id="y"></span> JF Piché
+    </footer>
+  </main>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
