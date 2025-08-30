@@ -38,7 +38,7 @@
 
     /* Lightbox */
     .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:1000}
-    .lightbox img{max-width:90%;max-height:90%;border-radius:10px;object-fit: contain;}
+    .lightbox img{width:auto;height:auto;max-width:90%;max-height:90%;border-radius:10px;object-fit: contain;}
     .lightbox.close-hint{cursor:zoom-out}
     .lightbox-content { display: flex;flex-direction: column;align-items: center;gap: 8px;}
     .lightbox .credit {color: #ccc;font-size: 14px;font-style: italic;text-align: center; margin: 0;}
@@ -75,7 +75,7 @@
             </figure>
           </div>
         </article>
-      <div></div>
+      </div>
     </section>
 
     <section id="contact">
@@ -117,10 +117,10 @@
     function openLightbox(list, index){
     currentList  = list;
     currentIndex = index;
-    const currentImg = currentlist[currentIndex];
-      
-    lightImg.src = currentList[currentIndex].src;
-    creditText.textContent = img.dataset.credit || "";
+    
+    const currentImg = currentList[currentIndex];
+    lightImg.src = currentImg.src;
+    creditText.textContent = currentImg.dataset.credit || "";
       
     lightbox.style.display = 'flex';
     lightbox.setAttribute('aria-hidden','false');
@@ -140,7 +140,7 @@
     currentIndex = (currentIndex + delta + currentList.length) % currentList.length;
 
     const currentImg = currentList[currentIndex];
-    lightImg.src = currentList[currentIndex].src;
+    lightImg.src = currentImg.src;
     creditText.textContent = currentImg.dataset.credit || "";
   }
 
