@@ -153,12 +153,16 @@
     });
   });
 
-  // Boutons prev/next (on empêche que le click ferme la lightbox)
+  // Navigation
   btnNext.addEventListener('click', e => { e.stopPropagation(); show(+1); });
   btnPrev.addEventListener('click', e => { e.stopPropagation(); show(-1); });
 
   // Fermer en cliquant le fond
   lightbox.addEventListener('click', closeLightbox);
+
+  // Ne ferme pas quand clique au centre
+  lightbox.querySelector('.lightbox-content')
+          .addEventListener('click', e => e.stopPropagation());
 
   // Navigation clavier
   window.addEventListener('keydown', (e) => {
