@@ -49,7 +49,7 @@
     .lightbox .next{ right:20px; }
     .lightbox button:hover{ background:rgba(255,255,255,.35); }
     .lightbox button:focus{ outline:2px solid rgba(125,211,252,.8); outline-offset:2px; }
-    @media (max-width:640px){.lightbox button{ font-size:1.6rem; padding:6px 10px; }
+    @media (max-width:640px){.lightbox button{ font-size:1.6rem; padding:6px 10px; }}
   </style>
 </head>
 <body>
@@ -104,14 +104,15 @@
     // Lightbox
     const lightbox = document.getElementById('lightbox');
     const lightImg = lightbox.querySelector('img');
+    const creditText = lightbox.querySelector('.credit');
     const btnPrev   = lightbox.querySelector('.prev');
     const btnNext   = lightbox.querySelector('.next');
-    const creditText = lightbox.querySelector('.credit');
-
+    
     // On navigue DANS la galerie du projet cliqué (pas toutes les images du site)
     let currentList = [];   // Array<IMG> de la galerie active
     let currentIndex = 0;   // index dans currentList
 
+    // Quand tu ouvres une image :
     function openLightbox(list, index){
     currentList  = list;
     currentIndex = index;
@@ -121,7 +122,8 @@
     lightbox.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden'; // évite le scroll derrière
   }
-  function closeLightbox(){
+    // Quand tu fermes :
+    function closeLightbox(){
     lightbox.style.display = 'none';
     lightbox.setAttribute('aria-hidden','true');
     lightImg.src = '';
@@ -129,7 +131,7 @@
     document.body.style.overflow = '';
   }
 
-  function show(delta){
+    function show(delta){
     if (!currentList.length) return;
     currentIndex = (currentIndex + delta + currentList.length) % currentList.length;
     lightImg.src = currentList[currentIndex].src;
