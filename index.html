@@ -158,9 +158,6 @@
   btnNext.addEventListener('click', e => { e.stopPropagation(); show(+1); });
   btnPrev.addEventListener('click', e => { e.stopPropagation(); show(-1); });
 
-  // Fermer en cliquant le fond
-  lightbox.addEventListener('click', closeLightbox);
-
  // Fermer si le clic n'est PAS à l'intérieur de .lightbox-content
   lightbox.addEventListener('click', (e) => {
     if (!e.target.closest('.lightbox-content')) {
