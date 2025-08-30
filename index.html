@@ -40,6 +40,8 @@
     .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:1000}
     .lightbox img{max-width:90%;max-height:90%;border-radius:10px;object-fit: contain;}
     .lightbox.close-hint{cursor:zoom-out}
+    .lightbox-content { display: flex;flex-direction: column;align-items: center;gap: 8px;}
+    .lightbox .credit {color: #ccc;font-size: 14px;font-style: italic;text-align: center; margin: 0;}
 
     /* Lightbox nav */
     .lightbox button{position:absolute; top:50%; transform:translateY(-50%);background:rgba(255,255,255,.2); border:none; color:#fff;font-size:2rem; padding:8px 12px; border-radius:8px; cursor:pointer;}
@@ -63,16 +65,13 @@
           <h3>La Noce d’Alfonse</h3>
           <div class="gallery">
             <figure>
-              <div class="ph"><img src="assets/noce-1.jpg" alt="La Noce d’Alfonse – vue 1"></div>
-              <figcaption>📸 Crédit : JF Savaria</figcaption>
+              <div class="ph"><img src="assets/noce-1.jpg" alt="La Noce d’Alfonse – vue 1" data-credit="📸 JF Savaria"></div>
             </figure>
             <figure>
-              <div class="ph"><img src="assets/noce-2.jpg" alt="La Noce d’Alfonse – vue 2"></div>
-              <figcaption>📸 Crédit : JF Savaria</figcaption>
+              <div class="ph"><img src="assets/noce-2.jpg" alt="La Noce d’Alfonse – vue 2" data-credit="📸 JF Savaria"></div>
             </figure>
             <figure>
-              <div class="ph"><img src="assets/noce-3.jpg" alt="La Noce d’Alfonse – vue 3"></div>
-              <figcaption>📸 Crédit : JF Savaria</figcaption>
+              <div class="ph"><img src="assets/noce-3.jpg" alt="La Noce d’Alfonse – vue 3" data-credit="📸 JF Savaria"></div>
             </figure>
           </div>
         </article>
@@ -91,7 +90,10 @@
   <!-- Lightbox overlay (une seule fois, en dehors des projets) -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="prev" aria-label="Image précédente">⟨</button>
-    <img src="" alt="Agrandissement" />
+    <div class="lightbox-content">
+      <img src="" alt="Agrandissement" />
+      <p class="credit"></p>
+    </div>
     <button class="next" aria-label="Image suivante">⟩</button>
   </div>
 
@@ -104,6 +106,16 @@
     const lightImg = lightbox.querySelector('img');
     const btnPrev   = lightbox.querySelector('.prev');
     const btnNext   = lightbox.querySelector('.next');
+    const creditText = lightbox.querySelector('.credit');
+
+    // Ici tu gardes ton code pour ouvrir les images et gérer navigation...
+    // Quand tu ouvres une image :
+    lightImg.src = img.src;
+    creditText.textContent = img.dataset.credit || "";
+
+    // Quand tu fermes :
+    lightImg.src = '';
+    creditText.textContent = '';
 
     // On navigue DANS la galerie du projet cliqué (pas toutes les images du site)
     let currentList = [];   // Array<IMG> de la galerie active
