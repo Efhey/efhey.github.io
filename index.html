@@ -108,15 +108,6 @@
     const btnNext   = lightbox.querySelector('.next');
     const creditText = lightbox.querySelector('.credit');
 
-    // Ici tu gardes ton code pour ouvrir les images et gérer navigation...
-    // Quand tu ouvres une image :
-    lightImg.src = img.src;
-    creditText.textContent = img.dataset.credit || "";
-
-    // Quand tu fermes :
-    lightImg.src = '';
-    creditText.textContent = '';
-
     // On navigue DANS la galerie du projet cliqué (pas toutes les images du site)
     let currentList = [];   // Array<IMG> de la galerie active
     let currentIndex = 0;   // index dans currentList
@@ -125,6 +116,7 @@
     currentList  = list;
     currentIndex = index;
     lightImg.src = currentList[currentIndex].src;
+    creditText.textContent = img.dataset.credit || "";
     lightbox.style.display = 'flex';
     lightbox.setAttribute('aria-hidden','false');
     document.body.style.overflow = 'hidden'; // évite le scroll derrière
@@ -133,6 +125,7 @@
     lightbox.style.display = 'none';
     lightbox.setAttribute('aria-hidden','true');
     lightImg.src = '';
+    creditText.textContent = '';
     document.body.style.overflow = '';
   }
 
